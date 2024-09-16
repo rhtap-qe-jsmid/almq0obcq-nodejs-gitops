@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: almq0obcq-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: almq0obcq-nodejs 
+  name: almq0obcq-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: almq0obcq-nodejs
+    weight: 100 
